@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Login con Gmail</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="card">
+        {% if session.email %}
+            <img src="{{ session.picture }}" alt="Foto de perfil" class="profile-pic">
+            <h1>{{ session.name }}</h1>
+            <p>{{ session.email }}</p>
+            <a href="/logout">Cerrar sesión</a>
+        {% else %}
+            <h1>Inicia sesión con Google</h1>
+            <a href="/login">Iniciar sesión</a>
+        {% endif %}
+    </div>
+</body>
+</html>
